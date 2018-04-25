@@ -111,3 +111,67 @@ bootstrap 使用最頻繁的元件
       input 會被隱藏
 
 ## Button group
+
+外層加上 .btn-group 的 class，裡面的 .btn 就可以被群組化了 (v4 採用 flex)
+
+- 結構
+
+    ```html
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-secondary">Left</button>
+      <button type="button" class="btn btn-secondary">Middle</button>
+      <button type="button" class="btn btn-secondary">Right</button>
+    </div>
+    ```
+
+- .btn-toolbar 可將整組的按鈕加入到按鈕工具列，實現再度群組化
+
+    ```html
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-secondary">1</button>
+        <button type="button" class="btn btn-secondary">2</button>
+        <button type="button" class="btn btn-secondary">3</button>
+        <button type="button" class="btn btn-secondary">4</button>
+      </div>
+      <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <button type="button" class="btn btn-secondary">5</button>
+        <button type="button" class="btn btn-secondary">6</button>
+        <button type="button" class="btn btn-secondary">7</button>
+      </div>
+      <div class="btn-group" role="group" aria-label="Third group">
+        <button type="button" class="btn btn-secondary">8</button>
+      </div>
+    </div>
+    ```
+
+    - 多群組的外層掛上該 class
+    - 可加上 .justify-content-between 等的類別實現 flex 排版
+
+- 也有 .input-group 將按鈕與輸入元素作群組
+- 有不同尺寸的大小控制 (不是調整按鈕)
+  - .btn-group-lg
+  - .btn-group
+  - .btn-group-sm
+- .btn-group-vertical 可使其垂直排列
+- plugin
+  - 可再作到巢狀。官網是與下拉式選單群組使用，詳見[官網](https://getbootstrap.com/docs/4.0/components/button-group/#nesting)
+
+## Card
+
+非常大的元件，將 v3 以前比較少用的元件整合到這裡
+
+- .card 可隨著外層 grid 調整它的大小，是有符合響應式的
+- .card 加入 .text-{left|center|right} 調整內層的文字對齊
+- .card 加入 utilities 改變不同色彩
+  - 背景：.bg-{color}
+  - 外框：.border-{color}
+- 可透過 .bg-transparent 移除背景色
+
+### 結構 1
+
+```html
+<div class="card"> <!-- 加入一個細細的 border 與白色的底 -->
+  <img src="" alt="" class="card-img-top"> <!-- or .card-img-bottom，會符合響應式 -->
+</div>
+```
