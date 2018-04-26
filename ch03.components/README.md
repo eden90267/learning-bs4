@@ -1030,4 +1030,140 @@ JavaScript 可調整成頁籤切換功能 (也可換 pills 模式)：
 - 如果要加入表單記得加入 .form-inline
 - 可用 fixed-top、fixed-bottom、sticky-top 做 navbar 不同定位
 
+## Pagination
 
+分頁結構，從 nav 標籤開始，內層的 ul 才加上 .pagination class，其結構 (使用圖示的版本)：
+
+```html
+<nav>
+  <ul class="pagination">
+    <li class="page-item">
+      <a href="#" class="page-link" aria-label="previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a href="#" class="page-link">1</a></li>
+    <li class="page-item"><a href="#" class="page-link">2</a></li>
+    <li class="page-item"><a href="#" class="page-link">3</a></li>
+    <li class="page-item">
+      <a href="#" class="page-link" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+```
+
+- .pagination 元素可加上不同尺寸
+  - .pagination-{sm|lg}
+- 可用 flex 屬性方式排版
+
+## Popovers
+
+彈出提示框，JavaScript 插件，啟用要一段 script 作啟用 (因為消耗效能)，針對大量訊息：
+
+```html
+<button class="btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on top
+</button>
+<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on right
+</button>
+ 
+<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamussagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on bottom
+</button>
+ 
+<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on left
+</button>
+<script>
+$(function() {
+  $('[data-toggle="popover"]').popover();
+})
+</script>
+```
+
+可加上 data-trigger="focus" 屬性以便用戶下一次點擊移除彈出提示框
+
+## Tooltips
+
+工具提示框，JavaScript 插件，啟用要一段 script 作啟用 (因為消耗效能)，針對小量訊息
+
+```html
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+  Tooltip on top
+</button>
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+  Tooltip on right
+</button>
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+  Tooltip on bottom
+</button>
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+  Tooltip on left
+</button>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+```
+
+## Scrollspy
+
+滾動監控，data-spy="scroll" 屬性，滑動特定區域相應的 nav-item 項目會隨之
+active 狀態
+
+```html
+<nav id="navbar-example2" class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" href="#fat">@fat</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#mdo">@mdo</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#one">one</a>
+        <a class="dropdown-item" href="#two">two</a>
+        <div role="separator" class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#three">three</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+<div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+  <h4 id="fat">@fat</h4>
+  <p>...</p>
+  <h4 id="mdo">@mdo</h4>
+  <p>...</p>
+  <h4 id="one">one</h4>
+  <p>...</p>
+  <h4 id="two">two</h4>
+  <p>...</p>
+  <h4 id="three">three</h4>
+  <p>...</p>
+</div>
+```
+
+## Progress
+
+進度條元件，基本元件：
+
+```html
+<div class="progress">
+  <div class="progress-bar" stype="width: 25%">25%</div>
+</div>
+```
+
+- .progress-bar 元素可透過加入 .bg-{color} 調整色彩
+- .progress-bar 元素可多個，做一條進度條的堆疊
+- .progress-bar 元素可透過加入 .progress-bar-striped 變成斜線條紋的樣式
+- .progress-bar 元素可透過加入 .progress-bar-animated 變成動態斜線條紋的樣式
+  (挺消耗 CPU 資源，要注意)
